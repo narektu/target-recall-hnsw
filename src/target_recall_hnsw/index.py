@@ -55,3 +55,11 @@ class HNSWIndex:
             self.graph.entry_point = node_id
 
         return node_id
+
+    def knn_search(self, query, k: int, ef_search: int | None = None):
+        ef_search = ef_search or max(k, self.ef_construction // 2)
+        entry_points = {self.graph.entry_point}
+        for layer in range(self.graph.top_layer, 0, -1):
+            entry_points = {search_layer(self.graph, query, entry_points, ef=1, layer=layer, distance_fn=self.distance_fn)[0][1]}
+            results = search_layer(self.graph, query, entry_points, ef=ef_search, layer=0, distance_fn=self.distance_fn)
+            return results[:k]
