@@ -22,3 +22,7 @@ class Graph:
     def connect(self, a: int, b: int, layer: int) -> None:
         self.nodes[a].neighbors[layer].discard(b)
         self.nodes[b].neighbors[layer].discard(a)
+
+    def disconnect(self, a: int, b: int, layer: int) -> None:
+        self.nodes[a].neighbors[layer].discard(b)
+        self.nodes[b].neighbors[layer].discard(a)
