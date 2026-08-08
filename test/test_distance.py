@@ -1,6 +1,6 @@
 import numpy as np
 from hypothesis import given, strategies as st
-from target_recall_hnsw.distance import l2_squared, cosine_distance
+from src.target_recall_hnsw.distance import l2_squared, cosine_distance
 
 # Strategy to generate random float vectors of dimension between 2 and 32
 vector_strategy = st.lists(

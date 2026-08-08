@@ -1,7 +1,7 @@
 import math
 import random
 import pytest
-from target_recall_hnsw.level import LevelSampler
+from src.target_recall_hnsw.level import LevelSampler
 
 
 def test_level_sampler_reproducibility():

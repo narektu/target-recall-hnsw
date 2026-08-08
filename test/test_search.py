@@ -1,6 +1,6 @@
 import numpy as np
 import pytest
-from target_recall_hnsw.search import search_layer
+from src.target_recall_hnsw.search import search_layer
 
 
 class Node:
